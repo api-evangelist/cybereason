@@ -1,0 +1,112 @@
+aid: cybereason
+url: https://raw.githubusercontent.com/api-evangelist/cybereason/refs/heads/main/apis.yml
+name: Cybereason
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+- Cybersecurity
+- XDR
+- EDR
+- NGAV
+- MDR
+- Endpoint Security
+- Threat Detection
+description: Cybereason is an enterprise cybersecurity company (now part of LevelBlue) that provides a defense platform spanning
+  Extended Detection and Response (XDR), Endpoint Detection and Response (EDR), Next-Generation Antivirus (NGAV), Managed
+  Detection and Response (MDR), mobile threat defense, and digital forensics and incident response. Its signature MalOp
+  (Malicious Operation) engine correlates alerts across endpoints and identities into a single operation-centric attack
+  story. Cybereason exposes a gated regional REST API (api.<region>.cybereason.net) for partner and customer integrations
+  with SIEMs, SOARs, and security tooling.
+created: '2026-05-23'
+modified: '2026-05-23'
+specificationVersion: '0.19'
+apis:
+- aid: cybereason:cybereason-rest-api
+  name: Cybereason REST API
+  tags:
+  - MalOp
+  - Sensors
+  - Threat Hunting
+  - Investigation
+  humanURL: https://nest.cybereason.com/documentation/api-documentation
+  baseURL: https://api.cybereason.net
+  properties:
+  - url: https://nest.cybereason.com/documentation/api-documentation
+    type: Documentation
+  - url: https://nest.cybereason.com/
+    type: Portal
+    title: Cybereason Nest Customer Portal (gated)
+  description: The Cybereason REST API is a gated, region-scoped API hosted at api.<region>.cybereason.net that allows customers
+    and integration partners to query MalOps, retrieve sensor inventory and status, run threat-hunting investigations across
+    endpoint telemetry, manage isolation and remediation actions, and stream detections into SIEM, SOAR, and ticketing systems.
+    Documentation and credentials are issued through the Cybereason Nest customer portal and are not generally available
+    to the public.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/cybereason
+- type: Website
+  url: https://www.cybereason.com/
+- type: Portal
+  url: https://nest.cybereason.com/
+  title: Cybereason Nest (Customer Portal)
+- type: Documentation
+  url: https://nest.cybereason.com/documentation/api-documentation
+- type: Blog
+  url: https://www.cybereason.com/blog
+- type: Support
+  url: https://www.cybereason.com/services/incident-response
+- type: ContactSales
+  url: https://www.cybereason.com/contact
+- type: Careers
+  url: https://www.cybereason.com/company/careers
+- type: PrivacyPolicy
+  url: https://www.cybereason.com/privacy-policy
+- type: TermsOfService
+  url: https://www.cybereason.com/terms-of-use
+- type: Features
+  data:
+  - name: MalOp Engine
+    description: Operation-centric detection that consolidates alerts and telemetry into a single contextualized attack story
+  - name: XDR
+    description: Extended Detection and Response correlating endpoint, identity, network, and cloud signals
+  - name: EDR
+    description: AI-powered Endpoint Detection and Response with deep behavioral analytics
+  - name: NGAV
+    description: Multi-layered Next-Generation Antivirus prevention including anti-ransomware
+  - name: MDR
+    description: 24x7 Managed Detection and Response across MDR Essentials, Essentials + XR, and MDR Complete tiers
+  - name: Mobile Threat Defense
+    description: Threat detection and response for iOS and Android endpoints
+  - name: Vulnerability Management
+    description: Proactive risk reduction across the endpoint estate
+  - name: Threat Hunting
+    description: Proactive hunting across historical and live endpoint telemetry
+  - name: Digital Forensics and Incident Response
+    description: DFIR services and 24x7 incident response on-call retainers
+  - name: Threat Intelligence
+    description: Threat intelligence and research from the Cybereason Nocturnus team
+- type: UseCases
+  data:
+  - name: SOC Operations
+    description: Surface and triage MalOps directly inside the SOC with full attack-story context
+  - name: SIEM Enrichment
+    description: Stream detections and MalOps into Splunk, Sentinel, Chronicle, and other SIEMs via REST API
+  - name: Managed Detection and Response
+    description: Outsource 24x7 detection and response to the Cybereason MDR team
+  - name: Incident Response
+    description: Engage Cybereason DFIR services for breach investigation, containment, and recovery
+  - name: Compromise Assessment
+    description: Run targeted compromise assessments and cyber posture assessments across the environment
+- type: Integrations
+  data:
+  - name: SIEM
+    description: REST API and event forwarding integrations with Splunk, Microsoft Sentinel, Google Chronicle, and others
+  - name: SOAR
+    description: Bidirectional integrations with SOAR platforms for automated containment and response actions
+  - name: Identity Providers
+    description: Identity-based detections across major IdPs as part of the XDR coverage
+  - name: Mobile Device Management
+    description: Mobile Threat Defense integrations with leading UEM/MDM platforms
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
