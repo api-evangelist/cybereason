@@ -1,0 +1,485 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cybereason API",
+    "version": "23.x"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "JSESSIONID",
+      "value": "{{JSESSIONID}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Log in and obtain a JSESSIONID cookie",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/login.html",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "username",
+                  "value": ""
+                },
+                {
+                  "name": "password",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Log in and obtain a JSESSIONID cookie"
+        },
+        {
+          "info": {
+            "name": "Log out the current session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.cybereason.net/logout"
+          },
+          "docs": "Log out the current session"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Malops",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query the Malop inbox",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/detection/inbox",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query the Malop inbox"
+        },
+        {
+          "info": {
+            "name": "Query unified Malops",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/crimes/unified",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query unified Malops"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "VisualSearch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Hunt with a Visual Search query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/visualsearch/query/simple",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Hunt with a Visual Search query"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sensors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query sensors",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/sensors/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query sensors"
+        },
+        {
+          "info": {
+            "name": "Archive sensors",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/sensors/action/archive",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Archive sensors"
+        },
+        {
+          "info": {
+            "name": "Unarchive sensors",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/sensors/action/unarchive",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Unarchive sensors"
+        },
+        {
+          "info": {
+            "name": "Delete sensors",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/sensors/action/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete sensors"
+        },
+        {
+          "info": {
+            "name": "Isolate machines from the network",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/monitor/global/commands/isolate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Isolate machines from the network"
+        },
+        {
+          "info": {
+            "name": "Un-isolate machines",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/monitor/global/commands/un-isolate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Un-isolate machines"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Remediation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Trigger remediation actions on a Malop",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/remediate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Trigger remediation actions on a Malop"
+        },
+        {
+          "info": {
+            "name": "Get remediation status for a Malop",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.cybereason.net/rest/remediate/status/:malopId",
+            "params": [
+              {
+                "name": "malopId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get remediation status for a Malop"
+        },
+        {
+          "info": {
+            "name": "Abort remediation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/remediate/abort",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Abort remediation"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reputation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List reputation entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.cybereason.net/rest/classification"
+          },
+          "docs": "List reputation entries"
+        },
+        {
+          "info": {
+            "name": "Add or update reputation entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/classification",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add or update reputation entries"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ThreatIntel",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Lookup file reputation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.cybereason.net/rest/classification_v1/file",
+            "params": [
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lookup file reputation"
+        },
+        {
+          "info": {
+            "name": "Lookup domain reputation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.cybereason.net/rest/classification_v1/domain",
+            "params": [
+              {
+                "name": "domain",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lookup domain reputation"
+        },
+        {
+          "info": {
+            "name": "Lookup IP reputation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.cybereason.net/rest/classification_v1/ip",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lookup IP reputation"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "IsolationRules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List isolation rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.cybereason.net/rest/settings/isolation-rule"
+          },
+          "docs": "List isolation rules"
+        },
+        {
+          "info": {
+            "name": "Create isolation rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/settings/isolation-rule",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create isolation rule"
+        },
+        {
+          "info": {
+            "name": "Update isolation rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{tenant}.cybereason.net/rest/settings/isolation-rule",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update isolation rule"
+        },
+        {
+          "info": {
+            "name": "Delete isolation rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/settings/isolation-rule/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete isolation rule"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "CustomDetectionRules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List active custom detection rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.cybereason.net/rest/customRules/decisionFeature/live"
+          },
+          "docs": "List active custom detection rules"
+        },
+        {
+          "info": {
+            "name": "Create a custom detection rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/customRules/decisionFeature/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a custom detection rule"
+        },
+        {
+          "info": {
+            "name": "Update a custom detection rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/customRules/decisionFeature/update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a custom detection rule"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
