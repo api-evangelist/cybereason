@@ -42,6 +42,14 @@ apis:
     Documentation and credentials are issued through the Cybereason Nest customer portal and are not generally available
     to the public.
 common:
+- type: TrustCenter
+  url: security/cybereason-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/cybereason-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/cybereason-domain-security.yml
+- type: Authentication
+  url: authentication/cybereason-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/cybereason
 - type: Website

@@ -1,0 +1,24 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/cybereason-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - cookie
+schemes:
+- name: SessionCookie
+  type: apiKey
+  in: cookie
+  parameter: JSESSIONID
+  description: Session cookie returned by POST /login.html.
+  sources:
+  - openapi/cybereason-openapi.yml
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: Available on Cybereason 20.1+ for token-based access.
+  sources:
+  - openapi/cybereason-openapi.yml
