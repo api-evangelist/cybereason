@@ -42,6 +42,8 @@ apis:
     Documentation and credentials are issued through the Cybereason Nest customer portal and are not generally available
     to the public.
 common:
+- type: AgenticAccess
+  url: agentic-access/cybereason-agentic-access.yml
 - type: TrustCenter
   url: security/cybereason-trust-center.yml
 - type: VulnerabilityDisclosure
