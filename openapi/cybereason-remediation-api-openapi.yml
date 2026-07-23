@@ -1,0 +1,156 @@
+openapi: 3.1.0
+info:
+  title: Cybereason Authentication Remediation API
+  version: 23.x
+  description: 'Cybereason EDR/XDR REST API. Exposes Malop investigation, hunting
+
+    via Visual Search, sensor management, isolation rules, custom
+
+    detection rules, reputation lists, threat-intel lookups, malware
+
+    queries, and remediation actions against a Cybereason tenant.
+
+
+    Best-effort spec derived from publicly indexed Cybereason API
+
+    documentation references (api-doc.cybereason.com URI/endpoints
+
+    pages, docs.cybereason.com 23.2 docs, Cortex XSOAR / Demisto
+
+    Cybereason integration, and the open-source CybereasonAPI
+
+    PowerShell module). Cybereason''s primary API documentation is
+
+    customer/partner-gated; the operational surface modelled here
+
+    matches the publicly described endpoints.
+
+
+    Authentication is performed via a POST to /login.html which
+
+    returns a JSESSIONID cookie used on subsequent calls. JWT
+
+    authentication is also supported on version 20.1+ deployments.
+
+    '
+  contact:
+    name: Cybereason Nest
+    url: https://nest.cybereason.com/documentation/api-documentation
+  license:
+    name: Proprietary
+servers:
+- url: https://{tenant}.cybereason.net
+  description: Cybereason tenant
+  variables:
+    tenant:
+      default: example
+      description: Your Cybereason tenant hostname prefix.
+security:
+- SessionCookie: []
+tags:
+- name: Remediation
+paths:
+  /rest/remediate:
+    post:
+      tags:
+      - Remediation
+      summary: Trigger remediation actions on a Malop
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemediationRequest'
+      responses:
+        '200':
+          description: Remediation accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemediationResponse'
+  /rest/remediate/status/{malopId}:
+    parameters:
+    - in: path
+      name: malopId
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Remediation
+      summary: Get remediation status for a Malop
+      responses:
+        '200':
+          description: Remediation status
+          content:
+            application/json:
+              schema:
+                type: object
+  /rest/remediate/abort:
+    post:
+      tags:
+      - Remediation
+      summary: Abort remediation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Aborted
+components:
+  schemas:
+    RemediationRequest:
+      type: object
+      properties:
+        initiatorUserName:
+          type: string
+        malopId:
+          type: string
+        actionsByMachine:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: object
+              properties:
+                targetId:
+                  type: string
+                actionType:
+                  type: string
+                  enum:
+                  - KILL_PROCESS
+                  - QUARANTINE_FILE
+                  - DELETE_REGISTRY_KEY
+                  - UNQUARANTINE_FILE
+                  - BLOCK_FILE
+    RemediationResponse:
+      type: object
+      properties:
+        remediationId:
+          type: string
+        initiatingUser:
+          type: string
+        start:
+          type: integer
+          format: int64
+        statusLog:
+          type: array
+          items:
+            type: object
+  securitySchemes:
+    SessionCookie:
+      type: apiKey
+      in: cookie
+      name: JSESSIONID
+      description: Session cookie returned by POST /login.html.
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Available on Cybereason 20.1+ for token-based access.
+externalDocs:
+  description: Cybereason API documentation
+  url: https://nest.cybereason.com/documentation/api-documentation

@@ -1,0 +1,120 @@
+openapi: 3.1.0
+info:
+  title: Cybereason Authentication VisualSearch API
+  version: 23.x
+  description: 'Cybereason EDR/XDR REST API. Exposes Malop investigation, hunting
+
+    via Visual Search, sensor management, isolation rules, custom
+
+    detection rules, reputation lists, threat-intel lookups, malware
+
+    queries, and remediation actions against a Cybereason tenant.
+
+
+    Best-effort spec derived from publicly indexed Cybereason API
+
+    documentation references (api-doc.cybereason.com URI/endpoints
+
+    pages, docs.cybereason.com 23.2 docs, Cortex XSOAR / Demisto
+
+    Cybereason integration, and the open-source CybereasonAPI
+
+    PowerShell module). Cybereason''s primary API documentation is
+
+    customer/partner-gated; the operational surface modelled here
+
+    matches the publicly described endpoints.
+
+
+    Authentication is performed via a POST to /login.html which
+
+    returns a JSESSIONID cookie used on subsequent calls. JWT
+
+    authentication is also supported on version 20.1+ deployments.
+
+    '
+  contact:
+    name: Cybereason Nest
+    url: https://nest.cybereason.com/documentation/api-documentation
+  license:
+    name: Proprietary
+servers:
+- url: https://{tenant}.cybereason.net
+  description: Cybereason tenant
+  variables:
+    tenant:
+      default: example
+      description: Your Cybereason tenant hostname prefix.
+security:
+- SessionCookie: []
+tags:
+- name: VisualSearch
+paths:
+  /rest/visualsearch/query/simple:
+    post:
+      tags:
+      - VisualSearch
+      summary: Hunt with a Visual Search query
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VisualSearchRequest'
+      responses:
+        '200':
+          description: Visual Search response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VisualSearchResponse'
+components:
+  schemas:
+    VisualSearchResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties: true
+        status:
+          type: string
+    VisualSearchRequest:
+      type: object
+      properties:
+        queryPath:
+          type: array
+          items:
+            type: object
+            properties:
+              requestedType:
+                type: string
+              filters:
+                type: array
+                items:
+                  type: object
+        customFields:
+          type: array
+          items:
+            type: string
+        totalResultLimit:
+          type: integer
+          default: 1000
+        perGroupLimit:
+          type: integer
+        templateContext:
+          type: string
+          example: SPECIFIC
+  securitySchemes:
+    SessionCookie:
+      type: apiKey
+      in: cookie
+      name: JSESSIONID
+      description: Session cookie returned by POST /login.html.
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Available on Cybereason 20.1+ for token-based access.
+externalDocs:
+  description: Cybereason API documentation
+  url: https://nest.cybereason.com/documentation/api-documentation

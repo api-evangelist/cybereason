@@ -1,0 +1,114 @@
+openapi: 3.1.0
+info:
+  title: Cybereason Authentication Reputation API
+  version: 23.x
+  description: 'Cybereason EDR/XDR REST API. Exposes Malop investigation, hunting
+
+    via Visual Search, sensor management, isolation rules, custom
+
+    detection rules, reputation lists, threat-intel lookups, malware
+
+    queries, and remediation actions against a Cybereason tenant.
+
+
+    Best-effort spec derived from publicly indexed Cybereason API
+
+    documentation references (api-doc.cybereason.com URI/endpoints
+
+    pages, docs.cybereason.com 23.2 docs, Cortex XSOAR / Demisto
+
+    Cybereason integration, and the open-source CybereasonAPI
+
+    PowerShell module). Cybereason''s primary API documentation is
+
+    customer/partner-gated; the operational surface modelled here
+
+    matches the publicly described endpoints.
+
+
+    Authentication is performed via a POST to /login.html which
+
+    returns a JSESSIONID cookie used on subsequent calls. JWT
+
+    authentication is also supported on version 20.1+ deployments.
+
+    '
+  contact:
+    name: Cybereason Nest
+    url: https://nest.cybereason.com/documentation/api-documentation
+  license:
+    name: Proprietary
+servers:
+- url: https://{tenant}.cybereason.net
+  description: Cybereason tenant
+  variables:
+    tenant:
+      default: example
+      description: Your Cybereason tenant hostname prefix.
+security:
+- SessionCookie: []
+tags:
+- name: Reputation
+paths:
+  /rest/classification:
+    get:
+      tags:
+      - Reputation
+      summary: List reputation entries
+      responses:
+        '200':
+          description: Reputations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Reputation'
+    post:
+      tags:
+      - Reputation
+      summary: Add or update reputation entries
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Reputation'
+      responses:
+        '200':
+          description: Reputations updated
+components:
+  schemas:
+    Reputation:
+      type: object
+      properties:
+        keys:
+          type: array
+          items:
+            type: string
+        maliciousType:
+          type: string
+          enum:
+          - blacklist
+          - whitelist
+          - remove
+        prevent:
+          type: boolean
+        remove:
+          type: boolean
+  securitySchemes:
+    SessionCookie:
+      type: apiKey
+      in: cookie
+      name: JSESSIONID
+      description: Session cookie returned by POST /login.html.
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Available on Cybereason 20.1+ for token-based access.
+externalDocs:
+  description: Cybereason API documentation
+  url: https://nest.cybereason.com/documentation/api-documentation

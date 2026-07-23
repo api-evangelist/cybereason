@@ -1,0 +1,216 @@
+openapi: 3.1.0
+info:
+  title: Cybereason Authentication Sensors API
+  version: 23.x
+  description: 'Cybereason EDR/XDR REST API. Exposes Malop investigation, hunting
+
+    via Visual Search, sensor management, isolation rules, custom
+
+    detection rules, reputation lists, threat-intel lookups, malware
+
+    queries, and remediation actions against a Cybereason tenant.
+
+
+    Best-effort spec derived from publicly indexed Cybereason API
+
+    documentation references (api-doc.cybereason.com URI/endpoints
+
+    pages, docs.cybereason.com 23.2 docs, Cortex XSOAR / Demisto
+
+    Cybereason integration, and the open-source CybereasonAPI
+
+    PowerShell module). Cybereason''s primary API documentation is
+
+    customer/partner-gated; the operational surface modelled here
+
+    matches the publicly described endpoints.
+
+
+    Authentication is performed via a POST to /login.html which
+
+    returns a JSESSIONID cookie used on subsequent calls. JWT
+
+    authentication is also supported on version 20.1+ deployments.
+
+    '
+  contact:
+    name: Cybereason Nest
+    url: https://nest.cybereason.com/documentation/api-documentation
+  license:
+    name: Proprietary
+servers:
+- url: https://{tenant}.cybereason.net
+  description: Cybereason tenant
+  variables:
+    tenant:
+      default: example
+      description: Your Cybereason tenant hostname prefix.
+security:
+- SessionCookie: []
+tags:
+- name: Sensors
+paths:
+  /rest/sensors/query:
+    post:
+      tags:
+      - Sensors
+      summary: Query sensors
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SensorQueryRequest'
+      responses:
+        '200':
+          description: Matching sensors
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SensorQueryResponse'
+  /rest/sensors/action/archive:
+    post:
+      tags:
+      - Sensors
+      summary: Archive sensors
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SensorActionRequest'
+      responses:
+        '200':
+          description: Archive action accepted
+  /rest/sensors/action/unarchive:
+    post:
+      tags:
+      - Sensors
+      summary: Unarchive sensors
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SensorActionRequest'
+      responses:
+        '200':
+          description: Unarchive action accepted
+  /rest/sensors/action/delete:
+    post:
+      tags:
+      - Sensors
+      summary: Delete sensors
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SensorActionRequest'
+      responses:
+        '200':
+          description: Delete action accepted
+  /rest/monitor/global/commands/isolate:
+    post:
+      tags:
+      - Sensors
+      summary: Isolate machines from the network
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PylumIdRequest'
+      responses:
+        '200':
+          description: Isolation triggered
+  /rest/monitor/global/commands/un-isolate:
+    post:
+      tags:
+      - Sensors
+      summary: Un-isolate machines
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PylumIdRequest'
+      responses:
+        '200':
+          description: Un-isolation triggered
+components:
+  schemas:
+    SensorQueryResponse:
+      type: object
+      properties:
+        sensors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sensor'
+        totalResults:
+          type: integer
+    Sensor:
+      type: object
+      properties:
+        sensorId:
+          type: string
+        pylumId:
+          type: string
+        machineName:
+          type: string
+        internalIpAddress:
+          type: string
+        externalIpAddress:
+          type: string
+        osType:
+          type: string
+        status:
+          type: string
+        version:
+          type: string
+        lastPylumInfoMsgUpdateTime:
+          type: integer
+          format: int64
+    SensorActionRequest:
+      type: object
+      properties:
+        sensorsIds:
+          type: array
+          items:
+            type: string
+        argument:
+          type: string
+    PylumIdRequest:
+      type: object
+      properties:
+        pylumIds:
+          type: array
+          items:
+            type: string
+    SensorQueryRequest:
+      type: object
+      properties:
+        limit:
+          type: integer
+          default: 100
+        offset:
+          type: integer
+          default: 0
+        filters:
+          type: array
+          items:
+            type: object
+  securitySchemes:
+    SessionCookie:
+      type: apiKey
+      in: cookie
+      name: JSESSIONID
+      description: Session cookie returned by POST /login.html.
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Available on Cybereason 20.1+ for token-based access.
+externalDocs:
+  description: Cybereason API documentation
+  url: https://nest.cybereason.com/documentation/api-documentation

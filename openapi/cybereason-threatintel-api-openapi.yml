@@ -1,0 +1,121 @@
+openapi: 3.1.0
+info:
+  title: Cybereason Authentication ThreatIntel API
+  version: 23.x
+  description: 'Cybereason EDR/XDR REST API. Exposes Malop investigation, hunting
+
+    via Visual Search, sensor management, isolation rules, custom
+
+    detection rules, reputation lists, threat-intel lookups, malware
+
+    queries, and remediation actions against a Cybereason tenant.
+
+
+    Best-effort spec derived from publicly indexed Cybereason API
+
+    documentation references (api-doc.cybereason.com URI/endpoints
+
+    pages, docs.cybereason.com 23.2 docs, Cortex XSOAR / Demisto
+
+    Cybereason integration, and the open-source CybereasonAPI
+
+    PowerShell module). Cybereason''s primary API documentation is
+
+    customer/partner-gated; the operational surface modelled here
+
+    matches the publicly described endpoints.
+
+
+    Authentication is performed via a POST to /login.html which
+
+    returns a JSESSIONID cookie used on subsequent calls. JWT
+
+    authentication is also supported on version 20.1+ deployments.
+
+    '
+  contact:
+    name: Cybereason Nest
+    url: https://nest.cybereason.com/documentation/api-documentation
+  license:
+    name: Proprietary
+servers:
+- url: https://{tenant}.cybereason.net
+  description: Cybereason tenant
+  variables:
+    tenant:
+      default: example
+      description: Your Cybereason tenant hostname prefix.
+security:
+- SessionCookie: []
+tags:
+- name: ThreatIntel
+paths:
+  /rest/classification_v1/file:
+    get:
+      tags:
+      - ThreatIntel
+      summary: Lookup file reputation
+      parameters:
+      - in: query
+        name: hash
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: File reputation
+          content:
+            application/json:
+              schema:
+                type: object
+  /rest/classification_v1/domain:
+    get:
+      tags:
+      - ThreatIntel
+      summary: Lookup domain reputation
+      parameters:
+      - in: query
+        name: domain
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Domain reputation
+          content:
+            application/json:
+              schema:
+                type: object
+  /rest/classification_v1/ip:
+    get:
+      tags:
+      - ThreatIntel
+      summary: Lookup IP reputation
+      parameters:
+      - in: query
+        name: ip
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: IP reputation
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    SessionCookie:
+      type: apiKey
+      in: cookie
+      name: JSESSIONID
+      description: Session cookie returned by POST /login.html.
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Available on Cybereason 20.1+ for token-based access.
+externalDocs:
+  description: Cybereason API documentation
+  url: https://nest.cybereason.com/documentation/api-documentation
