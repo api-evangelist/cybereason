@@ -2,7 +2,20 @@ aid: cybereason
 url: https://raw.githubusercontent.com/api-evangelist/cybereason/refs/heads/main/apis.yml
 name: Cybereason
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cybereason.png
 tags:
 - Cybersecurity
 - XDR
@@ -36,11 +49,102 @@ apis:
   - url: https://nest.cybereason.com/
     type: Portal
     title: Cybereason Nest Customer Portal (gated)
-  description: The Cybereason REST API is a gated, region-scoped API hosted at api.<region>.cybereason.net that allows customers
-    and integration partners to query MalOps, retrieve sensor inventory and status, run threat-hunting investigations across
-    endpoint telemetry, manage isolation and remediation actions, and stream detections into SIEM, SOAR, and ticketing systems.
-    Documentation and credentials are issued through the Cybereason Nest customer portal and are not generally available
-    to the public.
+  description: >-
+    The Cybereason REST API is a gated, region-scoped API hosted at api.<region>.cybereason.net that allows
+    customers and integration partners to query MalOps, retrieve sensor inventory and status, run threat-hunting
+    investigations across endpoint telemetry, manage isolation and remediation actions, and stream detections
+    into SIEM, SOAR, and ticketing systems. Documentation and credentials are issued through the Cybereason
+    Nest customer portal and are not generally available to the public.
+- aid: cybereason:cybereason-authentication-api
+  name: Cybereason Authentication API
+  description: The Authentication API from Cybereason — 2 operation(s) for authentication.
+  humanURL: https://nest.cybereason.com/documentation/api-documentation
+  baseURL: https://api.cybereason.net
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/cybereason-authentication-api-openapi.yml
+- aid: cybereason:cybereason-customdetectionrules-api
+  name: Cybereason CustomDetectionRules API
+  description: The CustomDetectionRules API from Cybereason — 3 operation(s) for customdetectionrules.
+  humanURL: https://nest.cybereason.com/documentation/api-documentation
+  baseURL: https://api.cybereason.net
+  tags:
+  - CustomDetectionRules
+  properties:
+  - type: OpenAPI
+    url: openapi/cybereason-customdetectionrules-api-openapi.yml
+- aid: cybereason:cybereason-isolationrules-api
+  name: Cybereason IsolationRules API
+  description: The IsolationRules API from Cybereason — 2 operation(s) for isolationrules.
+  humanURL: https://nest.cybereason.com/documentation/api-documentation
+  baseURL: https://api.cybereason.net
+  tags:
+  - IsolationRules
+  properties:
+  - type: OpenAPI
+    url: openapi/cybereason-isolationrules-api-openapi.yml
+- aid: cybereason:cybereason-malops-api
+  name: Cybereason Malops API
+  description: The Malops API from Cybereason — 2 operation(s) for malops.
+  humanURL: https://nest.cybereason.com/documentation/api-documentation
+  baseURL: https://api.cybereason.net
+  tags:
+  - Malops
+  properties:
+  - type: OpenAPI
+    url: openapi/cybereason-malops-api-openapi.yml
+- aid: cybereason:cybereason-remediation-api
+  name: Cybereason Remediation API
+  description: The Remediation API from Cybereason — 3 operation(s) for remediation.
+  humanURL: https://nest.cybereason.com/documentation/api-documentation
+  baseURL: https://api.cybereason.net
+  tags:
+  - Remediation
+  properties:
+  - type: OpenAPI
+    url: openapi/cybereason-remediation-api-openapi.yml
+- aid: cybereason:cybereason-reputation-api
+  name: Cybereason Reputation API
+  description: The Reputation API from Cybereason — 1 operation(s) for reputation.
+  humanURL: https://nest.cybereason.com/documentation/api-documentation
+  baseURL: https://api.cybereason.net
+  tags:
+  - Reputation
+  properties:
+  - type: OpenAPI
+    url: openapi/cybereason-reputation-api-openapi.yml
+- aid: cybereason:cybereason-sensors-api
+  name: Cybereason Sensors API
+  description: The Sensors API from Cybereason — 6 operation(s) for sensors.
+  humanURL: https://nest.cybereason.com/documentation/api-documentation
+  baseURL: https://api.cybereason.net
+  tags:
+  - Sensors
+  properties:
+  - type: OpenAPI
+    url: openapi/cybereason-sensors-api-openapi.yml
+- aid: cybereason:cybereason-threatintel-api
+  name: Cybereason ThreatIntel API
+  description: The ThreatIntel API from Cybereason — 3 operation(s) for threatintel.
+  humanURL: https://nest.cybereason.com/documentation/api-documentation
+  baseURL: https://api.cybereason.net
+  tags:
+  - ThreatIntel
+  properties:
+  - type: OpenAPI
+    url: openapi/cybereason-threatintel-api-openapi.yml
+- aid: cybereason:cybereason-visualsearch-api
+  name: Cybereason VisualSearch API
+  description: The VisualSearch API from Cybereason — 1 operation(s) for visualsearch.
+  humanURL: https://nest.cybereason.com/documentation/api-documentation
+  baseURL: https://api.cybereason.net
+  tags:
+  - VisualSearch
+  properties:
+  - type: OpenAPI
+    url: openapi/cybereason-visualsearch-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/cybereason-agentic-access.yml
