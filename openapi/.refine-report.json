@@ -1,0 +1,30 @@
+{
+  "provider": "cybereason",
+  "sources": [
+    "cybereason-authentication-api-openapi.yml",
+    "cybereason-customdetectionrules-api-openapi.yml",
+    "cybereason-isolationrules-api-openapi.yml",
+    "cybereason-malops-api-openapi.yml",
+    "cybereason-remediation-api-openapi.yml",
+    "cybereason-reputation-api-openapi.yml",
+    "cybereason-sensors-api-openapi.yml",
+    "cybereason-threatintel-api-openapi.yml",
+    "cybereason-visualsearch-api-openapi.yml"
+  ],
+  "outputs": [
+    "cybereason-authentication-api-openapi.yml",
+    "cybereason-customdetectionrules-api-openapi.yml",
+    "cybereason-isolationrules-api-openapi.yml",
+    "cybereason-malops-api-openapi.yml",
+    "cybereason-remediation-api-openapi.yml",
+    "cybereason-reputation-api-openapi.yml",
+    "cybereason-sensors-api-openapi.yml",
+    "cybereason-threatintel-api-openapi.yml",
+    "cybereason-visualsearch-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
