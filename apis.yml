@@ -32,7 +32,7 @@ description: Cybereason is an enterprise cybersecurity company (now part of Leve
   with SIEMs, SOARs, and security tooling.
 created: '2026-05-23'
 modified: '2026-05-23'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: cybereason:cybereason-rest-api
   name: Cybereason REST API
