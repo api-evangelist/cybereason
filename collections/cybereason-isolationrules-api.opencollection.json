@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cybereason Authentication IsolationRules API",
+    "version": "23.x"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "JSESSIONID",
+      "value": "{{JSESSIONID}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "IsolationRules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List isolation rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.cybereason.net/rest/settings/isolation-rule"
+          },
+          "docs": "List isolation rules"
+        },
+        {
+          "info": {
+            "name": "Create isolation rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/settings/isolation-rule",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create isolation rule"
+        },
+        {
+          "info": {
+            "name": "Update isolation rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{tenant}.cybereason.net/rest/settings/isolation-rule",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update isolation rule"
+        },
+        {
+          "info": {
+            "name": "Delete isolation rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/settings/isolation-rule/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete isolation rule"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

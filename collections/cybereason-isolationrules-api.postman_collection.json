@@ -1,0 +1,471 @@
+{
+  "item": [
+    {
+      "id": "f138b95d-f270-4a03-994c-bb5b129975d6",
+      "name": "IsolationRules",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7447245b-cc2a-4205-b030-a48c19b2b4de",
+          "name": "List isolation rules",
+          "request": {
+            "name": "List isolation rules",
+            "description": {},
+            "url": {
+              "path": [
+                "rest",
+                "settings",
+                "isolation-rule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Cybereason tenant hostname prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5edfe8d3-290d-4492-bbcf-60d61c0d876b",
+              "name": "Isolation rules",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rest",
+                    "settings",
+                    "isolation-rule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Cybereason tenant hostname prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "JSESSIONID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ruleId\": \"string\",\n    \"ipAddress\": \"string\",\n    \"ipAddressString\": \"string\",\n    \"port\": 3232,\n    \"portRangeStart\": 9276,\n    \"portRangeEnd\": 2589,\n    \"direction\": \"ALL\",\n    \"blocking\": false\n  },\n  {\n    \"ruleId\": \"string\",\n    \"ipAddress\": \"string\",\n    \"ipAddressString\": \"string\",\n    \"port\": 7188,\n    \"portRangeStart\": 4257,\n    \"portRangeEnd\": 5203,\n    \"direction\": \"INCOMING\",\n    \"blocking\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "34c3c91c-d1b0-4e84-938c-dbef242a28a8",
+          "name": "Create isolation rule",
+          "request": {
+            "name": "Create isolation rule",
+            "description": {},
+            "url": {
+              "path": [
+                "rest",
+                "settings",
+                "isolation-rule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Cybereason tenant hostname prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ruleId\": \"<string>\",\n  \"ipAddress\": \"<string>\",\n  \"ipAddressString\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"portRangeStart\": \"<integer>\",\n  \"portRangeEnd\": \"<integer>\",\n  \"direction\": \"<string>\",\n  \"blocking\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "da166f32-501d-431f-a46f-a95b9ad9a9ad",
+              "name": "Rule created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rest",
+                    "settings",
+                    "isolation-rule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Cybereason tenant hostname prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "JSESSIONID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ruleId\": \"<string>\",\n  \"ipAddress\": \"<string>\",\n  \"ipAddressString\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"portRangeStart\": \"<integer>\",\n  \"portRangeEnd\": \"<integer>\",\n  \"direction\": \"<string>\",\n  \"blocking\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98db5299-4042-4293-9fa3-d76466fc7634",
+          "name": "Update isolation rule",
+          "request": {
+            "name": "Update isolation rule",
+            "description": {},
+            "url": {
+              "path": [
+                "rest",
+                "settings",
+                "isolation-rule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Cybereason tenant hostname prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ruleId\": \"<string>\",\n  \"ipAddress\": \"<string>\",\n  \"ipAddressString\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"portRangeStart\": \"<integer>\",\n  \"portRangeEnd\": \"<integer>\",\n  \"direction\": \"<string>\",\n  \"blocking\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7372acb4-6e4b-4a0a-a215-81f533249c97",
+              "name": "Rule updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rest",
+                    "settings",
+                    "isolation-rule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Cybereason tenant hostname prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "JSESSIONID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ruleId\": \"<string>\",\n  \"ipAddress\": \"<string>\",\n  \"ipAddressString\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"portRangeStart\": \"<integer>\",\n  \"portRangeEnd\": \"<integer>\",\n  \"direction\": \"<string>\",\n  \"blocking\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5b80655-acae-442c-8541-87c7725c9e0c",
+          "name": "Delete isolation rule",
+          "request": {
+            "name": "Delete isolation rule",
+            "description": {},
+            "url": {
+              "path": [
+                "rest",
+                "settings",
+                "isolation-rule",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Cybereason tenant hostname prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ruleId\": \"<string>\",\n  \"ipAddress\": \"<string>\",\n  \"ipAddressString\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"portRangeStart\": \"<integer>\",\n  \"portRangeEnd\": \"<integer>\",\n  \"direction\": \"<string>\",\n  \"blocking\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "50c4d1db-4178-4d73-a682-6ed37d5c181a",
+              "name": "Rule deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rest",
+                    "settings",
+                    "isolation-rule",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Cybereason tenant hostname prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "JSESSIONID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ruleId\": \"<string>\",\n  \"ipAddress\": \"<string>\",\n  \"ipAddressString\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"portRangeStart\": \"<integer>\",\n  \"portRangeEnd\": \"<integer>\",\n  \"direction\": \"<string>\",\n  \"blocking\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Cybereason tenant hostname prefix.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "example",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.cybereason.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "JSESSIONID"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1b9ada4b-e8e6-4b26-9b44-5bc5d44bfe72",
+    "name": "Cybereason Authentication IsolationRules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Cybereason EDR/XDR REST API. Exposes Malop investigation, hunting\nvia Visual Search, sensor management, isolation rules, custom\ndetection rules, reputation lists, threat-intel lookups, malware\nqueries, and remediation actions against a Cybereason tenant.\n\nBest-effort spec derived from publicly indexed Cybereason API\ndocumentation references (api-doc.cybereason.com URI/endpoints\npages, docs.cybereason.com 23.2 docs, Cortex XSOAR / Demisto\nCybereason integration, and the open-source CybereasonAPI\nPowerShell module). Cybereason's primary API documentation is\ncustomer/partner-gated; the operational surface modelled here\nmatches the publicly described endpoints.\n\nAuthentication is performed via a POST to /login.html which\nreturns a JSESSIONID cookie used on subsequent calls. JWT\nauthentication is also supported on version 20.1+ deployments.\n\n\nContact Support:\n Name: Cybereason Nest",
+      "type": "text/plain"
+    }
+  }
+}

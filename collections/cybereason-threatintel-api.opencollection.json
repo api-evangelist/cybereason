@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cybereason Authentication ThreatIntel API",
+    "version": "23.x"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "JSESSIONID",
+      "value": "{{JSESSIONID}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ThreatIntel",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Lookup file reputation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.cybereason.net/rest/classification_v1/file",
+            "params": [
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lookup file reputation"
+        },
+        {
+          "info": {
+            "name": "Lookup domain reputation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.cybereason.net/rest/classification_v1/domain",
+            "params": [
+              {
+                "name": "domain",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lookup domain reputation"
+        },
+        {
+          "info": {
+            "name": "Lookup IP reputation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.cybereason.net/rest/classification_v1/ip",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lookup IP reputation"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

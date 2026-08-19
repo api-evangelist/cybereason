@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cybereason Authentication Reputation API",
+    "version": "23.x"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "JSESSIONID",
+      "value": "{{JSESSIONID}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reputation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List reputation entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.cybereason.net/rest/classification"
+          },
+          "docs": "List reputation entries"
+        },
+        {
+          "info": {
+            "name": "Add or update reputation entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/classification",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add or update reputation entries"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

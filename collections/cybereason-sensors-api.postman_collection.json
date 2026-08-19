@@ -1,0 +1,716 @@
+{
+  "item": [
+    {
+      "id": "cfb42b66-091b-4dfc-b7b7-137aa39970cf",
+      "name": "Sensors",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6074f018-9ca7-4fa0-b1e7-621119669106",
+          "name": "Query sensors",
+          "request": {
+            "name": "Query sensors",
+            "description": {},
+            "url": {
+              "path": [
+                "rest",
+                "sensors",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Cybereason tenant hostname prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"limit\": 100,\n  \"offset\": 0,\n  \"filters\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a90efe2d-097c-4f17-b0da-8a88310f76b3",
+              "name": "Matching sensors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rest",
+                    "sensors",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Cybereason tenant hostname prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "JSESSIONID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"limit\": 100,\n  \"offset\": 0,\n  \"filters\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sensors\": [\n    {\n      \"sensorId\": \"string\",\n      \"pylumId\": \"string\",\n      \"machineName\": \"string\",\n      \"internalIpAddress\": \"string\",\n      \"externalIpAddress\": \"string\",\n      \"osType\": \"string\",\n      \"status\": \"string\",\n      \"version\": \"string\",\n      \"lastPylumInfoMsgUpdateTime\": 6978\n    },\n    {\n      \"sensorId\": \"string\",\n      \"pylumId\": \"string\",\n      \"machineName\": \"string\",\n      \"internalIpAddress\": \"string\",\n      \"externalIpAddress\": \"string\",\n      \"osType\": \"string\",\n      \"status\": \"string\",\n      \"version\": \"string\",\n      \"lastPylumInfoMsgUpdateTime\": 4303\n    }\n  ],\n  \"totalResults\": 3254\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57f6aa78-b426-42af-a332-48da99f02d05",
+          "name": "Archive sensors",
+          "request": {
+            "name": "Archive sensors",
+            "description": {},
+            "url": {
+              "path": [
+                "rest",
+                "sensors",
+                "action",
+                "archive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Cybereason tenant hostname prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sensorsIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"argument\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "15de49af-11ec-46df-be5e-fe12db760fba",
+              "name": "Archive action accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rest",
+                    "sensors",
+                    "action",
+                    "archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Cybereason tenant hostname prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "JSESSIONID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sensorsIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"argument\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e52c7cec-e949-4ac9-83d5-24fbfdf163c0",
+          "name": "Unarchive sensors",
+          "request": {
+            "name": "Unarchive sensors",
+            "description": {},
+            "url": {
+              "path": [
+                "rest",
+                "sensors",
+                "action",
+                "unarchive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Cybereason tenant hostname prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sensorsIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"argument\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a896b518-fc53-443b-bd3c-901fcc82aa1e",
+              "name": "Unarchive action accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rest",
+                    "sensors",
+                    "action",
+                    "unarchive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Cybereason tenant hostname prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "JSESSIONID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sensorsIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"argument\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cece8a5-e273-4ebe-8dcd-426ed2fd9322",
+          "name": "Delete sensors",
+          "request": {
+            "name": "Delete sensors",
+            "description": {},
+            "url": {
+              "path": [
+                "rest",
+                "sensors",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Cybereason tenant hostname prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sensorsIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"argument\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1be1629b-21b7-4576-a64f-1988dbb249bc",
+              "name": "Delete action accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rest",
+                    "sensors",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Cybereason tenant hostname prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "JSESSIONID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sensorsIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"argument\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "85e57f10-cefb-4b0f-913a-de9209d4a0f9",
+          "name": "Isolate machines from the network",
+          "request": {
+            "name": "Isolate machines from the network",
+            "description": {},
+            "url": {
+              "path": [
+                "rest",
+                "monitor",
+                "global",
+                "commands",
+                "isolate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Cybereason tenant hostname prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pylumIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2912a463-cd73-4aad-87e6-4230b4058cab",
+              "name": "Isolation triggered",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rest",
+                    "monitor",
+                    "global",
+                    "commands",
+                    "isolate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Cybereason tenant hostname prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "JSESSIONID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pylumIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d84efcfa-1463-47f9-bd23-cafe9b810bab",
+          "name": "Un-isolate machines",
+          "request": {
+            "name": "Un-isolate machines",
+            "description": {},
+            "url": {
+              "path": [
+                "rest",
+                "monitor",
+                "global",
+                "commands",
+                "un-isolate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Cybereason tenant hostname prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pylumIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6f29b6d0-5ff2-4865-9f21-070a316b7b43",
+              "name": "Un-isolation triggered",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rest",
+                    "monitor",
+                    "global",
+                    "commands",
+                    "un-isolate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Cybereason tenant hostname prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "JSESSIONID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pylumIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Cybereason tenant hostname prefix.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "example",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.cybereason.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "JSESSIONID"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a5ccdfce-9078-4c00-9f2e-3f218d15b177",
+    "name": "Cybereason Authentication Sensors API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Cybereason EDR/XDR REST API. Exposes Malop investigation, hunting\nvia Visual Search, sensor management, isolation rules, custom\ndetection rules, reputation lists, threat-intel lookups, malware\nqueries, and remediation actions against a Cybereason tenant.\n\nBest-effort spec derived from publicly indexed Cybereason API\ndocumentation references (api-doc.cybereason.com URI/endpoints\npages, docs.cybereason.com 23.2 docs, Cortex XSOAR / Demisto\nCybereason integration, and the open-source CybereasonAPI\nPowerShell module). Cybereason's primary API documentation is\ncustomer/partner-gated; the operational surface modelled here\nmatches the publicly described endpoints.\n\nAuthentication is performed via a POST to /login.html which\nreturns a JSESSIONID cookie used on subsequent calls. JWT\nauthentication is also supported on version 20.1+ deployments.\n\n\nContact Support:\n Name: Cybereason Nest",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,369 @@
+{
+  "item": [
+    {
+      "id": "f5b43b1d-110c-40af-8e0c-8b3551e40a5c",
+      "name": "CustomDetectionRules",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "93a49f41-1577-4ecb-a8b7-6299b22a7998",
+          "name": "List active custom detection rules",
+          "request": {
+            "name": "List active custom detection rules",
+            "description": {},
+            "url": {
+              "path": [
+                "rest",
+                "customRules",
+                "decisionFeature",
+                "live"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Cybereason tenant hostname prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "881d5896-5fb1-4851-8367-c1cd06d58aed",
+              "name": "Active rules",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rest",
+                    "customRules",
+                    "decisionFeature",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Cybereason tenant hostname prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "JSESSIONID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"rootCause\": \"string\",\n    \"malopDetectionType\": \"string\",\n    \"severity\": \"string\",\n    \"enabled\": true\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"rootCause\": \"string\",\n    \"malopDetectionType\": \"string\",\n    \"severity\": \"string\",\n    \"enabled\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e501a17-ab91-4e94-94d2-f65b44fb7c91",
+          "name": "Create a custom detection rule",
+          "request": {
+            "name": "Create a custom detection rule",
+            "description": {},
+            "url": {
+              "path": [
+                "rest",
+                "customRules",
+                "decisionFeature",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Cybereason tenant hostname prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"rootCause\": \"<string>\",\n  \"malopDetectionType\": \"<string>\",\n  \"severity\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3e5565ab-4e4d-4fa9-a6cd-20698de9e431",
+              "name": "Rule created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rest",
+                    "customRules",
+                    "decisionFeature",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Cybereason tenant hostname prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "JSESSIONID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"rootCause\": \"<string>\",\n  \"malopDetectionType\": \"<string>\",\n  \"severity\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "728989a6-e4ff-4d1c-a135-107aafaf03d0",
+          "name": "Update a custom detection rule",
+          "request": {
+            "name": "Update a custom detection rule",
+            "description": {},
+            "url": {
+              "path": [
+                "rest",
+                "customRules",
+                "decisionFeature",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Cybereason tenant hostname prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"rootCause\": \"<string>\",\n  \"malopDetectionType\": \"<string>\",\n  \"severity\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ad004aa5-5001-4233-8999-a7085319f6d3",
+              "name": "Rule updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rest",
+                    "customRules",
+                    "decisionFeature",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Cybereason tenant hostname prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "JSESSIONID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"rootCause\": \"<string>\",\n  \"malopDetectionType\": \"<string>\",\n  \"severity\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Cybereason tenant hostname prefix.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "example",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.cybereason.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "JSESSIONID"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a07ddf70-4afd-4777-93a2-8b47c5274c3c",
+    "name": "Cybereason Authentication CustomDetectionRules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Cybereason EDR/XDR REST API. Exposes Malop investigation, hunting\nvia Visual Search, sensor management, isolation rules, custom\ndetection rules, reputation lists, threat-intel lookups, malware\nqueries, and remediation actions against a Cybereason tenant.\n\nBest-effort spec derived from publicly indexed Cybereason API\ndocumentation references (api-doc.cybereason.com URI/endpoints\npages, docs.cybereason.com 23.2 docs, Cortex XSOAR / Demisto\nCybereason integration, and the open-source CybereasonAPI\nPowerShell module). Cybereason's primary API documentation is\ncustomer/partner-gated; the operational surface modelled here\nmatches the publicly described endpoints.\n\nAuthentication is performed via a POST to /login.html which\nreturns a JSESSIONID cookie used on subsequent calls. JWT\nauthentication is also supported on version 20.1+ deployments.\n\n\nContact Support:\n Name: Cybereason Nest",
+      "type": "text/plain"
+    }
+  }
+}

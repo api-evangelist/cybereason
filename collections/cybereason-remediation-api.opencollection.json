@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cybereason Authentication Remediation API",
+    "version": "23.x"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "JSESSIONID",
+      "value": "{{JSESSIONID}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Remediation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Trigger remediation actions on a Malop",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/remediate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Trigger remediation actions on a Malop"
+        },
+        {
+          "info": {
+            "name": "Get remediation status for a Malop",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.cybereason.net/rest/remediate/status/:malopId",
+            "params": [
+              {
+                "name": "malopId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get remediation status for a Malop"
+        },
+        {
+          "info": {
+            "name": "Abort remediation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/remediate/abort",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Abort remediation"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

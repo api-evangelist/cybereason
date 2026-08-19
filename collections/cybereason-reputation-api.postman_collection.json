@@ -1,0 +1,253 @@
+{
+  "item": [
+    {
+      "id": "36de4017-7bea-431b-85f2-ec6ff92cd952",
+      "name": "Reputation",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f88c3d43-9c1a-4cdb-8028-eba73e67ffa8",
+          "name": "List reputation entries",
+          "request": {
+            "name": "List reputation entries",
+            "description": {},
+            "url": {
+              "path": [
+                "rest",
+                "classification"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Cybereason tenant hostname prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0e3cebd7-0b9f-4611-866a-222d4043309e",
+              "name": "Reputations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rest",
+                    "classification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Cybereason tenant hostname prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "JSESSIONID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"keys\": [\n      \"string\",\n      \"string\"\n    ],\n    \"maliciousType\": \"whitelist\",\n    \"prevent\": true,\n    \"remove\": false\n  },\n  {\n    \"keys\": [\n      \"string\",\n      \"string\"\n    ],\n    \"maliciousType\": \"blacklist\",\n    \"prevent\": false,\n    \"remove\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e8a37bb-6d82-4e05-aa8f-8eeca707fe2e",
+          "name": "Add or update reputation entries",
+          "request": {
+            "name": "Add or update reputation entries",
+            "description": {},
+            "url": {
+              "path": [
+                "rest",
+                "classification"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Cybereason tenant hostname prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"keys\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"maliciousType\": \"<string>\",\n    \"prevent\": \"<boolean>\",\n    \"remove\": \"<boolean>\"\n  },\n  {\n    \"keys\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"maliciousType\": \"<string>\",\n    \"prevent\": \"<boolean>\",\n    \"remove\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "89492f47-e83f-417a-b3d2-0f2003db2139",
+              "name": "Reputations updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rest",
+                    "classification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Cybereason tenant hostname prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "JSESSIONID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"keys\": [\n      \"string\",\n      \"string\"\n    ],\n    \"maliciousType\": \"remove\",\n    \"prevent\": true,\n    \"remove\": true\n  },\n  {\n    \"keys\": [\n      \"string\",\n      \"string\"\n    ],\n    \"maliciousType\": \"whitelist\",\n    \"prevent\": true,\n    \"remove\": true\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Cybereason tenant hostname prefix.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "example",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.cybereason.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "JSESSIONID"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "389162dc-4337-49bc-a68c-7ef71d87310b",
+    "name": "Cybereason Authentication Reputation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Cybereason EDR/XDR REST API. Exposes Malop investigation, hunting\nvia Visual Search, sensor management, isolation rules, custom\ndetection rules, reputation lists, threat-intel lookups, malware\nqueries, and remediation actions against a Cybereason tenant.\n\nBest-effort spec derived from publicly indexed Cybereason API\ndocumentation references (api-doc.cybereason.com URI/endpoints\npages, docs.cybereason.com 23.2 docs, Cortex XSOAR / Demisto\nCybereason integration, and the open-source CybereasonAPI\nPowerShell module). Cybereason's primary API documentation is\ncustomer/partner-gated; the operational surface modelled here\nmatches the publicly described endpoints.\n\nAuthentication is performed via a POST to /login.html which\nreturns a JSESSIONID cookie used on subsequent calls. JWT\nauthentication is also supported on version 20.1+ deployments.\n\n\nContact Support:\n Name: Cybereason Nest",
+      "type": "text/plain"
+    }
+  }
+}

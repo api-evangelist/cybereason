@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cybereason Authentication VisualSearch API",
+    "version": "23.x"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "JSESSIONID",
+      "value": "{{JSESSIONID}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "VisualSearch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Hunt with a Visual Search query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.cybereason.net/rest/visualsearch/query/simple",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Hunt with a Visual Search query"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
