@@ -131,6 +131,8 @@ apis:
   humanURL: https://nest.cybereason.com/documentation/api-documentation
   baseURL: https://api.cybereason.net
   tags:
+  - Threat Intel
+  tags_raw:
   - ThreatIntel
   properties:
   - type: OpenAPI
@@ -141,6 +143,8 @@ apis:
   humanURL: https://nest.cybereason.com/documentation/api-documentation
   baseURL: https://api.cybereason.net
   tags:
+  - Visual Search
+  tags_raw:
   - VisualSearch
   properties:
   - type: OpenAPI
