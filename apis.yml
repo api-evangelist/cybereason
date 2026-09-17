@@ -138,30 +138,26 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/cybereason-sensors-api-openapi.yml
-- aid: cybereason:cybereason-threatintel-api
-  name: Cybereason ThreatIntel API
-  description: The ThreatIntel API from Cybereason — 3 operation(s) for threatintel.
+- aid: cybereason:cybereason-threat-intel-api
+  name: Cybereason Threat Intel API
+  description: The Threat Intel API from Cybereason — 3 operation(s) for threat intel.
   humanURL: https://nest.cybereason.com/documentation/api-documentation
   baseURL: https://api.cybereason.net
   tags:
   - Threat Intel
-  tags_raw:
-  - ThreatIntel
   properties:
   - type: OpenAPI
-    url: openapi/cybereason-threatintel-api-openapi.yml
-- aid: cybereason:cybereason-visualsearch-api
-  name: Cybereason VisualSearch API
-  description: The VisualSearch API from Cybereason — 1 operation(s) for visualsearch.
+    url: openapi/cybereason-threat-intel-api-openapi.yml
+- aid: cybereason:cybereason-visual-search-api
+  name: Cybereason Visual search API
+  description: The Visual search API from Cybereason — 1 operation(s) for visual search.
   humanURL: https://nest.cybereason.com/documentation/api-documentation
   baseURL: https://api.cybereason.net
   tags:
-  - Visual Search
-  tags_raw:
-  - VisualSearch
+  - Visual search
   properties:
   - type: OpenAPI
-    url: openapi/cybereason-visualsearch-api-openapi.yml
+    url: openapi/cybereason-visual-search-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/cybereason-agentic-access.yml
