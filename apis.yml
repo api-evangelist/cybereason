@@ -53,6 +53,11 @@ apis:
   - MalOp
   - Sensors
   - Threat Hunting
+  - Investigations
+  tags_raw:
+  - MalOp
+  - Sensors
+  - Threat Hunting
   - Investigation
   humanURL: https://nest.cybereason.com/documentation/api-documentation
   baseURL: https://api.cybereason.net
@@ -154,6 +159,8 @@ apis:
   humanURL: https://nest.cybereason.com/documentation/api-documentation
   baseURL: https://api.cybereason.net
   tags:
+  - Visual Search
+  tags_raw:
   - Visual search
   properties:
   - type: OpenAPI
