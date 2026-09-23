@@ -1,38 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Cybereason Authentication Malops API
+  title: Cybereason Malops API
   version: 23.x
-  description: 'Cybereason EDR/XDR REST API. Exposes Malop investigation, hunting
-
-    via Visual Search, sensor management, isolation rules, custom
-
-    detection rules, reputation lists, threat-intel lookups, malware
-
-    queries, and remediation actions against a Cybereason tenant.
-
-
-    Best-effort spec derived from publicly indexed Cybereason API
-
-    documentation references (api-doc.cybereason.com URI/endpoints
-
-    pages, docs.cybereason.com 23.2 docs, Cortex XSOAR / Demisto
-
-    Cybereason integration, and the open-source CybereasonAPI
-
-    PowerShell module). Cybereason''s primary API documentation is
-
-    customer/partner-gated; the operational surface modelled here
-
-    matches the publicly described endpoints.
-
-
-    Authentication is performed via a POST to /login.html which
-
-    returns a JSESSIONID cookie used on subsequent calls. JWT
-
-    authentication is also supported on version 20.1+ deployments.
-
-    '
+  description: Cybereason EDR/XDR REST API.
   contact:
     name: Cybereason Nest
     url: https://nest.cybereason.com/documentation/api-documentation
@@ -68,6 +38,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MalopInboxResponse'
+      operationId: postRestDetectionInbox
+      x-operation-id-source: derived
   /rest/crimes/unified:
     post:
       tags:
@@ -86,28 +58,10 @@ paths:
             application/json:
               schema:
                 type: object
+      operationId: postRestCrimesUnified
+      x-operation-id-source: derived
 components:
   schemas:
-    MalopInboxRequest:
-      type: object
-      properties:
-        startTime:
-          type: integer
-          format: int64
-        endTime:
-          type: integer
-          format: int64
-        statusFilter:
-          type: array
-          items:
-            type: string
-            enum:
-            - Active
-            - ToReview
-            - Closed
-            - Reopened
-            - FalsePositive
-            - UnderInvestigation
     MalopInboxResponse:
       type: object
       properties:
@@ -133,6 +87,26 @@ components:
                   lastUpdateTime:
                     type: integer
                     format: int64
+    MalopInboxRequest:
+      type: object
+      properties:
+        startTime:
+          type: integer
+          format: int64
+        endTime:
+          type: integer
+          format: int64
+        statusFilter:
+          type: array
+          items:
+            type: string
+            enum:
+            - Active
+            - ToReview
+            - Closed
+            - Reopened
+            - FalsePositive
+            - UnderInvestigation
   securitySchemes:
     SessionCookie:
       type: apiKey

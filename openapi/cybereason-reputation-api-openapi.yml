@@ -1,38 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Cybereason Authentication Reputation API
+  title: Cybereason Reputation API
   version: 23.x
-  description: 'Cybereason EDR/XDR REST API. Exposes Malop investigation, hunting
-
-    via Visual Search, sensor management, isolation rules, custom
-
-    detection rules, reputation lists, threat-intel lookups, malware
-
-    queries, and remediation actions against a Cybereason tenant.
-
-
-    Best-effort spec derived from publicly indexed Cybereason API
-
-    documentation references (api-doc.cybereason.com URI/endpoints
-
-    pages, docs.cybereason.com 23.2 docs, Cortex XSOAR / Demisto
-
-    Cybereason integration, and the open-source CybereasonAPI
-
-    PowerShell module). Cybereason''s primary API documentation is
-
-    customer/partner-gated; the operational surface modelled here
-
-    matches the publicly described endpoints.
-
-
-    Authentication is performed via a POST to /login.html which
-
-    returns a JSESSIONID cookie used on subsequent calls. JWT
-
-    authentication is also supported on version 20.1+ deployments.
-
-    '
+  description: Cybereason EDR/XDR REST API.
   contact:
     name: Cybereason Nest
     url: https://nest.cybereason.com/documentation/api-documentation
@@ -64,6 +34,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Reputation'
+      operationId: getRestClassification
+      x-operation-id-source: derived
     post:
       tags:
       - Reputation
@@ -79,6 +51,8 @@ paths:
       responses:
         '200':
           description: Reputations updated
+      operationId: postRestClassification
+      x-operation-id-source: derived
 components:
   schemas:
     Reputation:

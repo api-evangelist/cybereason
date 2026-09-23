@@ -1,38 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Cybereason Authentication Remediation API
+  title: Cybereason Remediation API
   version: 23.x
-  description: 'Cybereason EDR/XDR REST API. Exposes Malop investigation, hunting
-
-    via Visual Search, sensor management, isolation rules, custom
-
-    detection rules, reputation lists, threat-intel lookups, malware
-
-    queries, and remediation actions against a Cybereason tenant.
-
-
-    Best-effort spec derived from publicly indexed Cybereason API
-
-    documentation references (api-doc.cybereason.com URI/endpoints
-
-    pages, docs.cybereason.com 23.2 docs, Cortex XSOAR / Demisto
-
-    Cybereason integration, and the open-source CybereasonAPI
-
-    PowerShell module). Cybereason''s primary API documentation is
-
-    customer/partner-gated; the operational surface modelled here
-
-    matches the publicly described endpoints.
-
-
-    Authentication is performed via a POST to /login.html which
-
-    returns a JSESSIONID cookie used on subsequent calls. JWT
-
-    authentication is also supported on version 20.1+ deployments.
-
-    '
+  description: Cybereason EDR/XDR REST API.
   contact:
     name: Cybereason Nest
     url: https://nest.cybereason.com/documentation/api-documentation
@@ -68,6 +38,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RemediationResponse'
+      operationId: postRestRemediate
+      x-operation-id-source: derived
   /rest/remediate/status/{malopId}:
     parameters:
     - in: path
@@ -86,6 +58,8 @@ paths:
             application/json:
               schema:
                 type: object
+      operationId: getRestRemediateStatusByMalopId
+      x-operation-id-source: derived
   /rest/remediate/abort:
     post:
       tags:
@@ -100,8 +74,24 @@ paths:
       responses:
         '200':
           description: Aborted
+      operationId: postRestRemediateAbort
+      x-operation-id-source: derived
 components:
   schemas:
+    RemediationResponse:
+      type: object
+      properties:
+        remediationId:
+          type: string
+        initiatingUser:
+          type: string
+        start:
+          type: integer
+          format: int64
+        statusLog:
+          type: array
+          items:
+            type: object
     RemediationRequest:
       type: object
       properties:
@@ -126,20 +116,6 @@ components:
                   - DELETE_REGISTRY_KEY
                   - UNQUARANTINE_FILE
                   - BLOCK_FILE
-    RemediationResponse:
-      type: object
-      properties:
-        remediationId:
-          type: string
-        initiatingUser:
-          type: string
-        start:
-          type: integer
-          format: int64
-        statusLog:
-          type: array
-          items:
-            type: object
   securitySchemes:
     SessionCookie:
       type: apiKey
