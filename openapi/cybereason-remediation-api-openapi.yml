@@ -78,20 +78,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    RemediationResponse:
-      type: object
-      properties:
-        remediationId:
-          type: string
-        initiatingUser:
-          type: string
-        start:
-          type: integer
-          format: int64
-        statusLog:
-          type: array
-          items:
-            type: object
     RemediationRequest:
       type: object
       properties:
@@ -116,6 +102,20 @@ components:
                   - DELETE_REGISTRY_KEY
                   - UNQUARANTINE_FILE
                   - BLOCK_FILE
+    RemediationResponse:
+      type: object
+      properties:
+        remediationId:
+          type: string
+        initiatingUser:
+          type: string
+        start:
+          type: integer
+          format: int64
+        statusLog:
+          type: array
+          items:
+            type: object
   securitySchemes:
     SessionCookie:
       type: apiKey
