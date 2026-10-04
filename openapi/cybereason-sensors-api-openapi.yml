@@ -122,35 +122,15 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    SensorQueryResponse:
+    SensorActionRequest:
       type: object
       properties:
-        sensors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Sensor'
-        totalResults:
-          type: integer
-    PylumIdRequest:
-      type: object
-      properties:
-        pylumIds:
+        sensorsIds:
           type: array
           items:
             type: string
-    SensorQueryRequest:
-      type: object
-      properties:
-        limit:
-          type: integer
-          default: 100
-        offset:
-          type: integer
-          default: 0
-        filters:
-          type: array
-          items:
-            type: object
+        argument:
+          type: string
     Sensor:
       type: object
       properties:
@@ -173,15 +153,35 @@ components:
         lastPylumInfoMsgUpdateTime:
           type: integer
           format: int64
-    SensorActionRequest:
+    SensorQueryRequest:
       type: object
       properties:
-        sensorsIds:
+        limit:
+          type: integer
+          default: 100
+        offset:
+          type: integer
+          default: 0
+        filters:
+          type: array
+          items:
+            type: object
+    PylumIdRequest:
+      type: object
+      properties:
+        pylumIds:
           type: array
           items:
             type: string
-        argument:
-          type: string
+    SensorQueryResponse:
+      type: object
+      properties:
+        sensors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sensor'
+        totalResults:
+          type: integer
   securitySchemes:
     SessionCookie:
       type: apiKey

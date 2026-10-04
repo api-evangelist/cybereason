@@ -42,14 +42,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    VisualSearchResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          additionalProperties: true
-        status:
-          type: string
     VisualSearchRequest:
       type: object
       properties:
@@ -76,6 +68,14 @@ components:
         templateContext:
           type: string
           example: SPECIFIC
+    VisualSearchResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties: true
+        status:
+          type: string
   securitySchemes:
     SessionCookie:
       type: apiKey
