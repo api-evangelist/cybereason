@@ -1,0 +1,91 @@
+slug: cybereason
+provider: Cybereason
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 8
+edges:
+- tag: Malops
+  spec_file: cybereason-malops-api-openapi.yml
+  capability_id: BC-620.30
+  capability_id_l1: BC-620
+  capability_name: Threat Detection & Response Management
+  confidence: 0.93
+  evidence: POST /rest/detection/inbox — Query the Malop inbox; POST /rest/crimes/unified — Query unified
+    Malops
+  reason: Malops are correlated malicious-operation detections; querying the detection inbox is SOC threat
+    detection and investigation, not generic alerting or financial-crime alerting.
+- tag: CustomDetectionRules
+  spec_file: cybereason-customdetectionrules-api-openapi.yml
+  capability_id: BC-620.30
+  capability_id_l1: BC-620
+  capability_name: Threat Detection & Response Management
+  confidence: 0.88
+  evidence: 'POST /rest/customRules/decisionFeature/create — Create a custom detection rule; schema: CustomDetectionRule'
+  reason: Authoring and maintaining detection rules on an EDR/XDR platform is threat detection engineering,
+    squarely Threat Detection & Response Management.
+- tag: Remediation
+  spec_file: cybereason-remediation-api-openapi.yml
+  capability_id: BC-620.30
+  capability_id_l1: BC-620
+  capability_name: Threat Detection & Response Management
+  confidence: 0.88
+  evidence: POST /rest/remediate — Trigger remediation actions on a Malop; GET /rest/remediate/status/{malopId}
+  reason: Triggering and tracking remediation of a malicious operation is security incident response action,
+    part of Threat Detection & Response Management.
+- tag: Sensors
+  spec_file: cybereason-sensors-api-openapi.yml
+  capability_id: BC-620.30
+  capability_id_l1: BC-620
+  capability_name: Threat Detection & Response Management
+  confidence: 0.85
+  evidence: POST /rest/monitor/global/commands/isolate 'Isolate machines from the network'; 'Query sensors'
+  reason: Managing EDR sensors and issuing network isolation commands on endpoints is classic SOC detection-and-response
+    operation, squarely within cybersecurity threat response.
+- tag: Threat Intel
+  spec_file: cybereason-threat-intel-api-openapi.yml
+  capability_id: BC-620.30
+  capability_id_l1: BC-620
+  capability_name: Threat Detection & Response Management
+  confidence: 0.85
+  evidence: '''Lookup file reputation'', ''Lookup domain reputation'', ''Lookup IP reputation'''
+  reason: Indicator reputation lookups (file/domain/IP) are threat-intelligence enrichment feeding security
+    detection and incident response.
+- tag: IsolationRules
+  spec_file: cybereason-isolationrules-api-openapi.yml
+  capability_id: BC-620.30
+  capability_id_l1: BC-620
+  capability_name: Threat Detection & Response Management
+  confidence: 0.82
+  evidence: GET /rest/settings/isolation-rule — List isolation rules; POST /rest/settings/isolation-rule
+    — Create isolation rule
+  reason: Isolation rules govern network containment of endpoints during threat response on an EDR platform,
+    i.e. detection and response operations rather than general IT config.
+- tag: Visual search
+  spec_file: cybereason-visual-search-api-openapi.yml
+  capability_id: BC-620.30
+  capability_id_l1: BC-620
+  capability_name: Threat Detection & Response Management
+  confidence: 0.8
+  evidence: POST /rest/visualsearch/query/simple 'Hunt with a Visual Search query'
+  reason: The single operation is an explicit threat-hunting query across EDR telemetry, i.e. security
+    detection and investigation, not generic enterprise search.
+- tag: Reputation
+  spec_file: cybereason-reputation-api-openapi.yml
+  capability_id: BC-620.30
+  capability_id_l1: BC-620
+  capability_name: Threat Detection & Response Management
+  confidence: 0.75
+  evidence: GET /rest/classification 'List reputation entries'; POST /rest/classification 'Add or update
+    reputation entries'; schema 'Reputation'
+  reason: On an EDR/XDR platform, reputation/classification entries are custom allow- and block-list indicators
+    used by detection and response. This is security threat detection tooling, not a commercial reputation
+    or brand capability.
