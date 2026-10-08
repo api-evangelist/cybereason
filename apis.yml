@@ -164,6 +164,12 @@ apis:
   - type: OpenAPI
     url: openapi/cybereason-visual-search-api-openapi.yml
 common:
+- type: Plans
+  url: plans/cybereason-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/cybereason-rate-limits.yml
+- type: FinOps
+  url: finops/cybereason-finops.yml
 - type: CapabilityMap
   url: capabilities/cybereason-capability-edges.yml
   name: Cybereason Business Capability Map
