@@ -62,6 +62,26 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    MalopInboxRequest:
+      type: object
+      properties:
+        startTime:
+          type: integer
+          format: int64
+        endTime:
+          type: integer
+          format: int64
+        statusFilter:
+          type: array
+          items:
+            type: string
+            enum:
+            - Active
+            - ToReview
+            - Closed
+            - Reopened
+            - FalsePositive
+            - UnderInvestigation
     MalopInboxResponse:
       type: object
       properties:
@@ -87,26 +107,6 @@ components:
                   lastUpdateTime:
                     type: integer
                     format: int64
-    MalopInboxRequest:
-      type: object
-      properties:
-        startTime:
-          type: integer
-          format: int64
-        endTime:
-          type: integer
-          format: int64
-        statusFilter:
-          type: array
-          items:
-            type: string
-            enum:
-            - Active
-            - ToReview
-            - Closed
-            - Reopened
-            - FalsePositive
-            - UnderInvestigation
   securitySchemes:
     SessionCookie:
       type: apiKey

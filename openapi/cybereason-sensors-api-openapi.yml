@@ -131,6 +131,26 @@ components:
             type: string
         argument:
           type: string
+    PylumIdRequest:
+      type: object
+      properties:
+        pylumIds:
+          type: array
+          items:
+            type: string
+    SensorQueryRequest:
+      type: object
+      properties:
+        limit:
+          type: integer
+          default: 100
+        offset:
+          type: integer
+          default: 0
+        filters:
+          type: array
+          items:
+            type: object
     Sensor:
       type: object
       properties:
@@ -153,26 +173,6 @@ components:
         lastPylumInfoMsgUpdateTime:
           type: integer
           format: int64
-    SensorQueryRequest:
-      type: object
-      properties:
-        limit:
-          type: integer
-          default: 100
-        offset:
-          type: integer
-          default: 0
-        filters:
-          type: array
-          items:
-            type: object
-    PylumIdRequest:
-      type: object
-      properties:
-        pylumIds:
-          type: array
-          items:
-            type: string
     SensorQueryResponse:
       type: object
       properties:
