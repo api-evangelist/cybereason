@@ -32,6 +32,14 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cybereason
 tags:
 - Cybersecurity
 - XDR
+- Endpoint Detection and Response
+- NGAV
+- MDR
+- Endpoint Security
+- Threat Detection
+tags_raw:
+- Cybersecurity
+- XDR
 - EDR
 - NGAV
 - MDR
@@ -159,6 +167,8 @@ apis:
   humanURL: https://nest.cybereason.com/documentation/api-documentation
   baseURL: https://api.cybereason.net
   tags:
+  - Visual Search
+  tags_raw:
   - Visual search
   properties:
   - type: OpenAPI
