@@ -5,6 +5,8 @@ checked:
 - https://eucoc.cloud/en/public-register/list-of-adherent-services
 - okta/integrations/okta-integration-edges.yml
 - palo-alto-networks/integrations/palo-alto-networks-integration-edges.yml
+- https://www.ismap.go.jp/csm?id=cloud_service_list
+- https://www.ismap.go.jp/csm?id=cloud_service_list_liu
 source:
 - okta/integrations/okta-integration-edges.yml
 - palo-alto-networks/integrations/palo-alto-networks-integration-edges.yml
@@ -79,3 +81,40 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-compliance-assurance.py
   first_seen: '2026-10-20'
+- partner_name: ISMAP
+  partner: null
+  partner_match: register
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.ismap.go.jp/csm?id=cloud_service_list
+  category: Japan government cloud security assessment (ISMAP)
+  contract_reference:
+    register: ISMAP / ISMAP-LIU cloud service lists (www.ismap.go.jp)
+    standard: ISMAP
+    spec_file: null
+    role: ismap-registered
+    registrations:
+    - register_number: C21-0025-2
+      registration_type: ISMAP
+      service: Cybereason EDR / MDRサービス
+      registered_name: サイバーリーズン合同会社
+      service_url: https://www.cybereason.co.jp/products/edr/
+      matched_domain: cybereason.co.jp
+      matched_by: domain+local-verified
+      evidence_url: https://www.ismap.go.jp/csm?id=cloud_service_list
+      scope_of_statement: https://www.ismap.go.jp/sys_attachment.do?sys_id=5783241a83bc7e10aa68c6a8beaad34f
+      hand_verified: サイバーリーズン合同会社 (Cybereason Japan GK) on cybereason.co.jp; all/cybereason holds cybereason.com
+    signal_note: certified_products = one entry per ISMAP registration TYPE (ISMAP, ISMAP-LIU), never per service;
+      services are context, never counted. The lists carry current registrations only (a filed renewal keeps a registration
+      valid), so lapsed is always false
+    certified_products:
+    - product: ISMAP
+      standard: ISMAP
+      registration_type: ISMAP
+      lapsed: false
+    detected_by: sweep-japan-ismap-tisax-assessments.py
+    detected: '2026-10-22'
+  detected_by: sweep-japan-ismap-tisax-assessments.py
+  first_seen: '2026-10-22'
